@@ -1,10 +1,10 @@
 version: '3.7'
 
 services:
-  sish:
-    image: antoniomika/sish:latest
-    # build:
-    #   context: ./sish
+  server-sshtunnel:
+    # image: ecadagiani/server-sshtunnel:latest
+    build:
+      context: ../../
     container_name: sish
     env_file: .env
     volumes:
