@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  sish:
+    image: antoniomika/sish:latest
+    # build:
+    #   context: ./sish
+    container_name: sish
+    env_file: .env
+    volumes:
+      - ./letsencrypt:/etc/letsencrypt
+      - ./pubkeys:/pubkeys
+      - ./keys:/keys
+    command: |
+      -sish.addr=:2222
+      -sish.https=:443
+      -sish.http=:80
+      -sish.httpsenabled=true
+      -sish.httpspems=/etc/letsencrypt/live/$DOMAIN
+      -sish.auth=true
+      -sish.keysdir=/pubkeys
+      -sish.password=""
+      -sish.pkloc=/keys/keyTunnelHMB
+      -sish.bindrandom=false
+      -sish.domain=$DOMAIN
+      -sish.forcerandomsubdomain=false
+    network_mode: host
+    restart: always

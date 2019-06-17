@@ -2,5 +2,3 @@ keys/
 pubkeys/
 ssl/
 sish
-deploy/*
-!deploy/docker-compose.yml
