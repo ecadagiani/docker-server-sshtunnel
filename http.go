@@ -59,7 +59,8 @@ func startHTTPHandler(state *State) {
 		}
 
 		c.Request.Header.Set("X-Forwarded-Proto", requestedScheme)
-
+		c.Request.Header.Set("Access-Control-Allow-Origin", "*")
+		
 		proxyHolder := loc.(*ProxyHolder)
 
 		url := *c.Request.URL
