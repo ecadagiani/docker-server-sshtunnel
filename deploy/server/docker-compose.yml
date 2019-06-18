@@ -24,5 +24,6 @@ services:
       -sish.bindrandom=false
       -sish.domain=$DOMAIN
       -sish.forcerandomsubdomain=false
+      -sish.verifyorigin=false
     network_mode: host
     restart: always
